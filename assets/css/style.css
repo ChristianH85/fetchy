@@ -43,7 +43,10 @@ header {
       color:var(--lightBg)
   }
   #fetchy{
-      width:70vw;
+      width:100%;
+  }
+  .tArea{
+      width:100%;
   }
   /* #results{
       width: 30wv;
