@@ -19,6 +19,8 @@ body{
 #fetchBtn{
 background-color: var(--compColor);
 color:var(--whtTxt);
+padding:.5em;
+border-radius: 50px;
 }
 header {
     /* font-size: 72px; */
@@ -45,6 +47,7 @@ header {
   #fetchy{
       width:100%;
   }
+  
   .tArea{
       width:100%;
   }

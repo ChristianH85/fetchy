@@ -3,6 +3,10 @@ let fBtn = document.getElementById('fetchBtn')
 let resDiv= document.getElementById('results')
 let errDiv= document.getElementById('errDiv')
 let statusDiv= document.getElementById('status')
+let method= document.getElementById('method')
+let headers= document.getElementById('fHead')
+let body= document.getElementById('fBody')
+
 const renderObj=(obj)=>{
     console.log(obj)
     // console.log(Object.keys(obj))
@@ -35,25 +39,65 @@ const renderStatus=(status)=>{
     elem.textContent=status
     statusDiv.appendChild(elem)
 }
-const fetchy=()=>{
-    console.log(apiInput.value)
-    resDiv.innerHTML =''
-    errDiv.innerHTML =''
-    statusDiv.innerHTML =''
-    fetch(apiInput.value).then(response=>{
-        console.log(response)
+const swType=(method,headers,body,url)=>{
+
+    switch(method){
+        case "GET":
+            getFetch(headers,url);
+            break;
+        case "POST":
+            otherFetch(headers,body,url);
+            break;
+        case "PUT":
+            otherFetch(headers,body,url);
+            break;
+        case "PATCH":
+            otherFetch(headers,body,url);
+            break;
+        case "DELETE":
+            otherFetch(headers,body,url)
+    }
+}
+const getFetch=(head,url)=>{   
+    fetch(url,
+        {
+            method:"GET",
+            headers:JSON.parse(head)
+        }
+        ).then(response=>{
         renderStatus(response.status)
         return response.json()
     }).then(data=>{
-        
-        console.log(data)
-        // console.log(typeof(data))
-        renderObj(data);
-            
+        renderObj(data);        
     }).catch(err=>{
         renderERR(err)
-        console.log(err)
     })
+}
+const otherFetch=(method,head,body,url)=>{   
+    console.log('other')
+    console.log(method,head,body,url)
+    // fetch(url,
+    //     {
+    //         method:method,
+    //         body:JSON.parse(body),
+    //         headers:JSON.parse(head)
+    //     }
+    //     ).then(response=>{
+    //     renderStatus(response.status)
+    //     return response.json()
+    // }).then(data=>{
+    //     renderObj(data);        
+    // }).catch(err=>{
+    //     renderERR(err)
+    // })
+}
+const fetchy=()=>{
+    swType(method.value,headers.value,body.value,apiInput.value)
+    // console.log(method.value,JSON.parse(headers.value),JSON.parse(body.value),apiInput.value)
+    
+    resDiv.innerHTML =''
+    errDiv.innerHTML =''
+    statusDiv.innerHTML =''
 }
 
 fBtn.addEventListener('click',fetchy)
