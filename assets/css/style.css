@@ -4,7 +4,7 @@
 --elemBG:#7a7979;
 --headerTxt:#e95a5a;
 --compColor:#da4747e7;
---lightBg: rgb(250, 235, 235);
+--lightBg: #faebeb;
 }
 
 body{
@@ -44,9 +44,9 @@ header {
       
   } */
   .block{
-      color: var(--whtTxt);
+      color: var(--compColor);
       white-space: pre-wrap;
-      background-color: var(--elemBG);
+      background-color: var(--lightBg);
       width: 30wv;
       margin:auto;
       padding:.25em;
