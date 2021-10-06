@@ -59,3 +59,15 @@ header {
       margin:auto;
       padding:.25em;
   }
+  .good{
+      background-color: var(--lightBg);
+      color:green;
+      font-size:2em;
+      font-weight: 800;
+  }
+  .bad{
+    background-color: var(--lightBg);
+    color:var(--compColor);
+    font-size:2em;
+    font-weight: 800;
+}
