@@ -16,10 +16,14 @@ body{
     font-family: 'Nunito', sans-serif;
     font-size:3em;
 }
+#fetchBtn{
+background-color: var(--compColor);
+color:var(--whtTxt);
+}
 header {
     /* font-size: 72px; */
     background: -webkit-linear-gradient(#e95a5a, #f5dada);
-    text-shadow:-3px -3px 2px #da4747e7;
+    text-shadow:-3px -3px 2px var(--compColor);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -33,6 +37,10 @@ header {
       padding:1em;
       border-radius: 15px;
       border:2px inset var(--compColor)
+  }
+  .error{
+      background-color:var(--compColor);
+      color:var(--lightBg)
   }
   #fetchy{
       width:70vw;

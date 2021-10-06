@@ -13,40 +13,16 @@ const renderObj=(obj)=>{
     elem.appendChild(code)
     resDiv.appendChild(elem)
 
-    // for(key in obj){
-    //     // console.log(key, obj[key])
-    //     console.log(Array.isArray(obj[key]))
-    //     let elem= document.createElement('pre')
-    //     let code= document.createElement('code')
-        
-    //     code.textContent=`${key} : ${Array.isArray(obj[key])?renderArray(obj[key]):obj[key]},` 
-    //     elem.appendChild(code)
-    //     resDiv.appendChild(elem)
-    // }
+
 }
-// const renderArray=(arr)=>{
-//     let elem= document.createElement('ul')
-//     for(let i=0;i<arr.length;i++){
-//         let li=document.createElement('ul')
-//         if(typeof(arr[i])){
-//            return renderObj(arr[i])
-//             // console.log('obj in array')
-//         }
-//     }
-// console.log(arr)
-// }
-// const swType=(data)=>{
-//     switch(typeof(data)){
-//         case 'object':
-//             console.log('its an obj');
-//             renderObj(data)
-//             break;
-//         case 'array':
-//             console.log('its an array');
-//             renderArray(data)
-//             break;
-//     }
-// }
+const renderERR=(err)=>{
+    resDiv.innerHTML =''
+    console.log(err)
+    let elem=document.createElement('div')
+    elem.setAttribute('class', 'error')
+    elem.textContent=err
+    resDiv.appendChild(elem)
+}
 const fetchy=()=>{
     console.log(apiInput.value)
 
@@ -58,6 +34,7 @@ const fetchy=()=>{
         renderObj(data);
             
     }).catch(err=>{
+        renderERR(err)
         console.log(err)
     })
 }
